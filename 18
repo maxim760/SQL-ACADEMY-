@@ -1,0 +1,10 @@
+Узнать, кто старше всех в семьe
+Поля в результирующей таблице:
+member_name
+--
+SELECT member_name 
+from FamilyMembers 
+WHERE birthday = (
+    SELECT MIN(birthday)
+    FROM FamilyMembers 
+)
