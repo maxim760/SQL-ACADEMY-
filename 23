@@ -1,0 +1,10 @@
+SELECT good_name, unit_price 
+FROM Payments
+  JOIN Goods  
+  JOIN GoodTypes
+    ON 
+      Goods.good_id = Payments.good AND 
+      GoodTypes.good_type_id = Goods.type
+WHERE GoodTypes.good_type_name = "delicacies"
+ORDER BY unit_price DESC 
+LIMIT 1
