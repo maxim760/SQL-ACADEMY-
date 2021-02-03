@@ -1,0 +1,13 @@
+Определить, кто из членов семьи покупал картошку (potato)
+Поля в результирующей таблице:
+status
+--
+SELECT DISTINCT status 
+FROM FamilyMembers
+JOIN Payments
+JOIN Goods
+ON 
+  FamilyMembers.member_id = Payments.family_member 
+  AND 
+  Payments.good = Goods.good_id
+WHERE Goods.good_name = "potato"
