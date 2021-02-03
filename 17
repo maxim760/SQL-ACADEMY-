@@ -1,0 +1,12 @@
+Определить, сколько потратил в 2005 году каждый из членов семьи
+Поля в результирующей таблице:
+member_name
+status
+costs
+--
+SELECT member_name, status, SUM(unit_price * amount) AS costs
+FROM FamilyMembers
+LEFT JOIN Payments
+ON FamilyMembers.member_id = Payments.family_member
+WHERE YEAR(Payments.date) = 2005
+GROUP BY member_name, status
