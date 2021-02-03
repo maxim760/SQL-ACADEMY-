@@ -1,0 +1,12 @@
+Определить, какие товары имеются в таблице Goods, но не покупались в течение 2005 года
+Поля в результирующей таблице:
+good_name
+--
+SELECT DISTINCT good_name 
+FROM Goods WHERE good_name NOT IN (
+    SELECT DISTINCT good_name
+    FROM Goods JOIN Payments
+        ON Goods.good_id = Payments.good
+    WHERE YEAR(Payments.date) = 2005 
+)
+ 
