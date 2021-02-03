@@ -1,0 +1,11 @@
+Вывести имена людей, у которых есть полный тёзка среди пассажиров
+--
+SELECT DISTINCT name
+FROM ( 
+  SELECT 
+    name, 
+    COUNT(*) as count 
+  FROM Passenger 
+  GROUP BY name 
+    HAVING count > 1
+) AS Passengers
