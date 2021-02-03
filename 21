@@ -1,0 +1,13 @@
+Определить товары, которые покупали более 1 раза
+Поля в результирующей таблице:
+good_name
+--
+SELECT DISTINCT good_name 
+FROM (
+    SELECT good_name, COUNT(amount) as goodAmount
+    FROM Goods JOIN Payments
+        ON Goods.good_id = Payments.good
+    GROUP BY good_name
+    HAVING goodAmount > 1  
+) as GoodsMore1
+// странно, что именно COUNT, логичнее было бы SUM, тк за раз можно больше одного купить уже
