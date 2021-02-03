@@ -1,0 +1,12 @@
+Вывести отсортированный по количеству перелетов (по убыванию) список пассажиров, совершивших хотя бы 1 полет.
+Поля в результирующей таблице:
+name, count
+--
+SELECT name, COUNT(*) as count
+FROM Passenger
+JOIN Pass_in_trip
+JOIN Trip
+ON Passenger.id = Pass_in_trip.passenger AND Trip.id = Pass_in_trip.trip
+GROUP BY Passenger.id, Passenger.name
+HAVING COUNT(*) >= 1 
+ORDER BY count DESC
