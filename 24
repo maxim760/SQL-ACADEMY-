@@ -1,0 +1,12 @@
+Определить кто и сколько потратил в июне 2005
+Поля в результирующей таблице:
+member_name
+costs
+--
+SELECT 
+    member_name,
+    SUM(amount * unit_price) AS costs
+FROM FamilyMembers LEFT JOIN Payments
+    ON FamilyMembers.member_id = Payments.family_member
+WHERE Payments.date BETWEEN "2005/06/01" AND "2005/06/30 23:59:59.999"  
+GROUP BY member_name
