@@ -1,0 +1,8 @@
+Найдите среднюю стоимость икры. В базе данных хранятся данные о покупках красной (red caviar) и черной икры (black caviar).
+Поля в результирующей таблице:
+cost
+--
+SELECT AVG(unit_price) as cost
+from Payments JOIN Goods
+  ON Goods.good_id = Payments.good
+WHERE Goods.good_name LIKE "% caviar"  
