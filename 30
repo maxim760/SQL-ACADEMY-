@@ -1,0 +1,4 @@
+SELECT trip, COUNT(*) as count 
+FROM  Pass_in_trip
+GROUP BY Trip
+ORDER BY count DESC 
