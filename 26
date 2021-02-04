@@ -1,0 +1,24 @@
+Определить группы товаров, которые не приобретались в 2005 году
+Поля в результирующей таблице:
+good_type_name
+--
+SELECT DISTINCT good_type_name 
+FROM GoodTypes WHERE good_type_name NOT IN (
+    SELECT DISTINCT good_type_name
+    FROM GoodTypes 
+        JOIN Goods 
+        JOIN Payments
+            ON GoodTypes.good_type_id = Goods.type AND 
+             Goods.good_id = Payments.good
+    WHERE YEAR(Payments.date) = 2005 
+)
+
+убрал лишний джоин
+SELECT DISTINCT good_type_name 
+FROM GoodTypes WHERE good_type_id NOT IN (
+    SELECT DISTINCT type
+    FROM Goods 
+        JOIN Payments
+            ON  Goods.good_id = Payments.good
+    WHERE YEAR(Payments.date) = 2005 
+)
