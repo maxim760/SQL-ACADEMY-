@@ -1,0 +1,10 @@
+Найдите максимальный возраст (колич. лет) среди обучающихся 10 классов ?
+Поля в результирующей таблице:
+max_year
+--
+SELECT MAX(YEAR(FROM_DAYS(DATEDIFF(now(), birthday)))) as max_year
+FROM Student
+  JOIN Student_in_class JOIN Class
+  ON Student_in_class.class = Class.id AND 
+     Student_in_class.student = Student.id
+WHERE Class.name LIKE "10%"
