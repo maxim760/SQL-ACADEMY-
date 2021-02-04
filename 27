@@ -1,0 +1,10 @@
+Узнать, сколько потрачено на каждую из групп товаров в 2005 году. Вывести название группы и сумму
+Поля в результирующей таблице:
+good_type_name
+costs
+--
+SELECT good_type_name, SUM(amount * unit_price) AS costs
+FROM GoodTypes JOIN Goods JOIN Payments
+ON Goods.type = GoodTypes.good_type_id AND Payments.good = Goods.good_id
+WHERE YEAR(date)  = 2005 
+GROUP BY good_type_name  
