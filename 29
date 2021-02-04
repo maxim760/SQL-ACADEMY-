@@ -1,0 +1,10 @@
+Выведите имена пассажиров улетевших в Москву (Moscow) на самолете TU-134
+Поля в результирующей таблице:
+name
+--
+SELECT DISTINCT  name
+FROM Passenger JOIN Pass_in_trip JOIN Trip
+ON Pass_in_trip.passenger = Passenger.id AND 
+   Trip.id = Pass_in_trip.trip
+WHERE town_to = "Moscow" AND 
+      plane = "TU-134"
