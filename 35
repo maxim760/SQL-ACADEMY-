@@ -1,0 +1,9 @@
+Сколько различных кабинетов школы использовались 2.09.2019 в образовательных целях ?
+Поля в результирующей таблице:
+count
+--
+select COUNT(*) as count from ( SELECT COUNT(classroom) as count, classroom
+FROM Schedule
+WHERE date BETWEEN "2019-09-02" AND "2019-09-02 23:59:59.999"
+GROUP BY classroom
+) as classes
