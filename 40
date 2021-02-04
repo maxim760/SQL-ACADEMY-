@@ -1,0 +1,12 @@
+Выведите название предметов, которые преподает Ромашкин П.П. (Romashkin P.P.) ?
+Поля в результирующей таблице:
+subjects
+--
+SELECT DISTINCT  name as subjects 
+FROM Subject 
+  JOIN Schedule JOIN Teacher
+    ON Schedule.subject = Subject.id AND  Teacher.id = Schedule.teacher
+WHERE 
+    Teacher.last_name = "Romashkin" AND 
+    Teacher.first_name LIKE "P%" AND
+    Teacher.middle_name LIKE "P%"
