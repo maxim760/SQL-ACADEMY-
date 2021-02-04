@@ -1,0 +1,8 @@
+Во сколько начинается 4-ый учебный предмет по расписанию ?
+Поля в результирующей таблице:
+start_pair
+--
+SELECT start_pair 
+FROM Timepair
+LIMIT 1
+OFFSET 3
