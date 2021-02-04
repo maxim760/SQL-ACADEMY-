@@ -1,0 +1,7 @@
+Сколько лет самому молодому обучающемуся ?
+Поля в результирующей таблице:
+year
+--
+SELECT 
+  MIN(YEAR(FROM_DAYS(DATEDIFF(now(), birthday)))) AS year 
+FROM Student 
