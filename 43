@@ -1,0 +1,10 @@
+Выведите фамилии преподавателей, которые ведут физическую культуру (Physical Culture). Остортируйте преподавателей по фамилии.
+Поля в результирующей таблице:
+last_name
+--
+SELECT DISTINCT  last_name 
+FROM Teacher
+  JOIN Schedule JOIN Subject
+  ON Schedule.teacher = Teacher.id and Schedule.subject = Subject.id
+WHERE Subject.name = "Physical Culture"
+ORDER BY last_name
