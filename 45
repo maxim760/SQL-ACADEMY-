@@ -1,0 +1,13 @@
+--
+
+select classroom FROM (
+    SELECT classroom, COUNT(*) as count FROM Schedule
+    GROUP BY classroom
+    HAVING count = (
+        select MAX(count) FROM (
+        SELECT classroom, COUNT(*) as count FROM Schedule
+        GROUP BY classroom
+        ) as innerClasses
+    )
+) as classes
+// это костыль но по другому не получается ((((
