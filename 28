@@ -1,0 +1,7 @@
+Сколько рейсов совершили авиакомпании с Ростова (Rostov) в Москву (Moscow) ?
+--
+SELECT COUNT(*) AS count 
+FROM Trip 
+WHERE 
+  town_from = "Rostov" AND 
+  town_to = "Moscow"
