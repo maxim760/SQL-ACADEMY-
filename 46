@@ -1,0 +1,8 @@
+В каких классах введет занятия преподаватель "Krauze" ?
+Поля в результирующей таблице:
+name
+--
+SELECT DISTINCT  name FROM Class
+join Schedule JOIN Teacher
+on Schedule.class = Class.id AND Schedule.teacher = Teacher.id
+where Teacher.last_name = "Krauze"
