@@ -1,0 +1,21 @@
+Выведите идентификаторы преподавателей, которые хотя бы один раз за всё время преподавали в каждом из одиннадцатых классов.
+Поля в результирующей таблице:
+teacher
+--
+SELECT teacher 
+FROM ( 
+    SELECT teacher, COUNT(*) 
+    FROM (
+        SELECT teacher,COUNT(*) as count 
+        FROM Schedule 
+        JOIN Class ON Schedule.class = Class.id 
+        WHERE Class.name LIKE "11%" 
+        GROUP BY teacher,Class.name 
+    ) AS Teachers 
+    GROUP BY teacher 
+    HAVING COUNT(*) = ( 
+        SELECT COUNT(*) 
+        FROM Class 
+        WHERE Class.name LIKE "11 %" 
+    )
+) as Teacs
