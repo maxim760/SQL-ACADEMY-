@@ -1,0 +1,13 @@
+Какой процент обучающихся учится в 10 A классе ?
+Поля в результирующей таблице:
+percent
+--
+select (
+  SELECT COUNT(*) as count 
+  FROM Student_in_class 
+  JOIN Class ON Class.id = Student_in_class.class 
+  WHERE Class.name = "10 A" 
+) / (
+  SELECT COUNT(*) as count 
+  FROM Student_in_class
+) * 100 as percent
