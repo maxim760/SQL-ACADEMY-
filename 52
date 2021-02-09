@@ -1,0 +1,5 @@
+Добавьте в список типов товаров (GoodTypes) новый тип "auto".
+В качестве первичного ключа (good_type_id) укажите количество записей в таблице + 1.
+--
+INSERT INTO GoodTypes
+SELECT COUNT(*) + 1 , "auto" from GoodType
