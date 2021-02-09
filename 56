@@ -1,0 +1,4 @@
+Удалить все перелеты, совершенные из Москвы (Moscow).
+--
+DELETE FROM Trip
+WHERE Trip.town_from = "Moscow"
