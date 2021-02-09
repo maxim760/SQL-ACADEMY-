@@ -1,0 +1,8 @@
+Сколько занятий провел Krauze 30 августа 2019 г.?
+Поля в результирующей таблице:
+count
+--
+SELECT COUNT(*) as count from Schedule
+JOIN Teacher on Teacher.id = Schedule.teacher
+WHERE Teacher.last_name = "Krauze" AND 
+      date BETWEEN "2019/08/30" and "2019/08/31"
