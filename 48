@@ -1,0 +1,11 @@
+Выведите заполненность классов в порядке убывания
+Поля в результирующей таблице:
+name
+count
+--
+SELECT name, COUNT(*) as count 
+from Class 
+JOIN Student_in_class
+ON Student_in_class.class = Class.id
+GROUP BY name
+ORDER BY count DESC 
